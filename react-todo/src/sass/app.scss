@@ -1,0 +1,36 @@
+@font-face {
+    font-family: handlee;
+    src: url('../fonts/Handlee-Regular.ttf');
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+    font-family: "handlee", cursive;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+}
+#root {
+    width: 100%;
+    height: 100%;
+}
+.app {
+    background-color: #00dfc0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: centers;
+}
