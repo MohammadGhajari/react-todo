@@ -2,6 +2,13 @@
     font-family: handlee;
     src: url('../fonts/Handlee-Regular.ttf');
 }
+
+
+$text-color: #555;
+$color-primary: #00dfc0;
+$color-primary-tint: #06a28e;
+
+
 * {
     padding: 0;
     margin: 0;
@@ -19,7 +26,7 @@ body {
     height: 100%;
 }
 .app {
-    background-color: #00dfc0;
+    background-color: $color-primary;
     width: 100%;
     height: 100%;
     display: flex;
@@ -32,5 +39,146 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: centers;
+    align-items: center;
+    width: 60%;
+    background-color: white;
+    & header {
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: relative;
+
+
+        & h1 {
+            font-size: 5.2rem;
+            color: $text-color;
+        }
+        & h3 {
+            font-size: 2rem;
+            color: $text-color;
+        }
+        & span {
+            background-color: $color-primary;
+            height: 0.6rem;
+            width: 15rem;
+            position: absolute;
+            bottom: 45%;
+        }
+
+    }
+}
+
+.input-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    
+    & .add-todo-btn {
+        background: transparent;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+
+        & svg {
+            color: $color-primary;
+            font-size: 3rem;
+            transition: 0.2s;
+        }
+        & svg:hover {
+            color: $color-primary-tint
+        }
+    }
+
+    & input {
+        width: 50%;
+        height: 2rem;
+        font-size: 2rem;
+        border: none;
+        border-bottom: 1px solid $color-primary;
+        background: transparent;
+        outline: none;
+    }
+    & input:focus {
+        border-bottom: 2px solid $color-primary;
+    }
+    
+    & input::placeholder {
+        font-family: "handlee", cursive;
+        font-size: 2rem;
+    }
+}
+
+.table-header-container {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 0 1.5rem 1rem;
+    display: flex;
+    width: 80%;
+    font-size: 1.6rem;
+    border-bottom: solid 1px #555;
+    & .num, & .task {
+        width: 27.5%;
+    }
+    & .data, & .status, & .delete {
+        width: 15%;
+    } 
+}
+
+.table-data-container {
+
+    margin-top: 0.5rem;
+    padding: 0 1.5rem 1rem;
+    display: flex;
+    width: 80%;
+    font-size: 1.6rem;
+
+
+    &:first-child {
+        background-color: red;
+    }
+
+    & .num {
+        width: 10%;
+    }
+    & .task {
+        width: 45%;
+        display: flex;
+        justify-content: center;
+    }
+    & .data, & .status, & .delete {
+        width: 15%;
+    } 
+    & .delete {
+        position: relative;
+        & button {
+            position: absolute;
+            left: 15%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            & svg {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    & .status {
+        & button {
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+
+            & svg {
+                width: 100%;
+                height: 100%;
+            }    
+        }
+
+    }
+
 }

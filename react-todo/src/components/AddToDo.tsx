@@ -1,12 +1,14 @@
 import React from 'react';
-import "../css/addtodo.css";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import "../css/app.css";
 
 
 
 const AddToDo: React.FC = () => {
-    return <h1>
-        hello
-    </h1>
+    return <div className='input-container'>
+        <input type="text" placeholder='Add your task...' />
+        <button className='add-todo-btn'><IoIosAddCircleOutline /></button>
+    </div>
 }
 
 export default AddToDo;
