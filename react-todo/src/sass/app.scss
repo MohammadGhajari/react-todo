@@ -41,6 +41,8 @@ body {
     justify-content: flex-start;
     align-items: center;
     width: 60%;
+    border-radius: 5px;
+    padding: 3rem 0;
     background-color: white;
     & header {
         display: flex;
@@ -95,6 +97,7 @@ body {
     }
 
     & input {
+        padding-bottom: 0.5rem;
         width: 50%;
         height: 2rem;
         font-size: 2rem;
@@ -139,18 +142,26 @@ body {
     } 
 }
 
+.item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    max-height: 50vh;
+    overflow: auto;
+    overflow-x: hidden;
+}
 .table-data-container {
-
+   
     margin-top: 0.5rem;
     padding: 0 1.5rem 1rem;
     display: flex;
-    width: 80%;
+    width: 100%;
+    max-width: 150%;
     font-size: 1.6rem;
 
 
-    &:first-child {
-        background-color: red;
-    }
 
     & .num {
         width: 10%;
@@ -159,8 +170,12 @@ body {
         width: 45%;
         display: flex;
         justify-content: center;
+        text-decoration: none;
     }
-    & .data, & .status, & .delete {
+    & .complete-todo {
+        text-decoration: line-through $color-primary;
+    }
+    & .date, & .status, & .delete {
         width: 15%;
         display: flex;
         justify-content: center
@@ -176,7 +191,8 @@ body {
                 transition: 0.2s;
             }
             & svg:hover {
-                color: $color-primary;
+                color: rgb(255, 5, 5);
+                animation: wiggle 2s infinite;
             }
         }
     }
@@ -238,3 +254,27 @@ body {
     }
 
 }
+
+@keyframes wiggle {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
+  }

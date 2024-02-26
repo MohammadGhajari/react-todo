@@ -13,11 +13,11 @@ interface entry {
 const AddToDo: React.FC<entry> = ({setToDoes, todos}) => {
 
     const [value, setValue] = useState("");
-
+    const date = new Date();
 
     function handleClick () {
         if(value) {
-            setToDoes([...todos, {num: todos.length + 1, text: value, date: '234', status: "incomplete"}]);
+            setToDoes([...todos, {num: todos.length + 1, text: value, date: date.toString().split(' ')[1] + " " + date.toString().split(' ')[2], status: "incomplete"}]);
             setValue("");
         }
     }
@@ -25,7 +25,7 @@ const AddToDo: React.FC<entry> = ({setToDoes, todos}) => {
     function handleKeyDown (e: Event) {
         if(e.key === 'Enter') {
             if(value) {
-                setToDoes([...todos, {num: todos.length + 1, text: value, date: '234', status: "incomplete"}]);
+                setToDoes([...todos, {num: todos.length + 1, text: value, date: date.toString().split(' ')[1] + " " + date.toString().split(' ')[2], status: "incomplete"}]);
                 setValue("");
             }
         }

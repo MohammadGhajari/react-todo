@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoCheckboxOutline } from "react-icons/io5";
+import ToDos from "./ToDos";
 
 type todoType = { num: number; text: string; date: string; status: string };
 
@@ -11,12 +12,21 @@ interface entry {
 }
 
 const ToDo: React.FC<entry> = ({ todo, setToDoes, toDoes }) => {
-    const [todoStatus, setTodoStatus] = useState(todo.status);
+    // const [todoStatus, setTodoStatus] = useState(todo.status);
 
     function handleCheck() {
-        setTodoStatus((todoStatus) =>
-            todoStatus === "complete" ? "incomplete" : "complete"
-        );
+    
+        // setTodoStatus((todoStatus) => todoStatus === "complete" ? "incomplete" : "complete");
+      
+        const s = todo.status === 'complete' ? 'incomplete' : 'complete';
+
+        const newTodoes = toDoes;
+        for(let i = 0; i < newTodoes.length; i++) 
+            if(newTodoes[i].num === todo.num)
+                newTodoes[i].status = s;
+
+        setToDoes([...newTodoes]);
+        
     }
 
     function handleDelete () {
@@ -28,24 +38,27 @@ const ToDo: React.FC<entry> = ({ todo, setToDoes, toDoes }) => {
                 newToDoes.push(toDoes[i]);
             }
 
-        setToDoes(newToDoes);
+        setToDoes([...newToDoes]);
     }
+
+
+
 
     return (
         <div className="table-data-container">
             <div className="num">{todo.num}</div>
-            <div className="task">{todo.text}</div>
-            <div className="data">{todo.date}</div>
+            <div className={`task ${todo.status === 'complete' && 'complete-todo'}`}>{todo.text}</div>
+            <div className={`date ${todo.status === 'complete' && 'complete-todo'}`}>{todo.date}</div>
             <div className="status">
                 <div
                     onClick={handleCheck}
                     className={`check-box-container ${
-                        todoStatus === "complete" ? "complete-status" : ""
+                        todo.status === "complete" ? "complete-status" : ""
                     }`}
                 >
                     <div
                         className={`check-status ${
-                            todoStatus === "complete"
+                            todo.status === "complete"
                                 ? "check-complete-status"
                                 : ""
                         }`}
