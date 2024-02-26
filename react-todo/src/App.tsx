@@ -9,7 +9,7 @@ const App: React.FC = () => {
         { num: number; text: string; date: string; status: string }[]
     >([
         { num: 1, text: "do homework", date: "25/02", status: "complete" },
-        { num: 2, text: "do homework", date: "25/02", status: "incomplete" },
+        { num: 2, text: "fucking a monkey", date: "25/02", status: "incomplete" },
     ]);
 
     const totalToDo = toDoes.length;
@@ -27,7 +27,7 @@ const App: React.FC = () => {
                     pendingCount={pendingCount}
                 />
                 <AddToDo setToDoes={setToDoes} todos={toDoes} />
-                <ToDos toDoes={toDoes}/>
+                <ToDos setToDoes={setToDoes} toDoes={toDoes} />
             </div>
         </div>
     );

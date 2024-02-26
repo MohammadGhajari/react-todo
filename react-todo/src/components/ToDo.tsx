@@ -2,17 +2,33 @@ import React, { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoCheckboxOutline } from "react-icons/io5";
 
+type todoType = { num: number; text: string; date: string; status: string };
+
 interface entry {
-    todo: { num: number; text: string; date: string; status: string };
+    todo: todoType;
+    toDoes: todoType[];
+    setToDoes: (todos: todoType[]) => void;
 }
 
-const ToDo: React.FC<entry> = ({ todo }) => {
+const ToDo: React.FC<entry> = ({ todo, setToDoes, toDoes }) => {
     const [todoStatus, setTodoStatus] = useState(todo.status);
 
     function handleCheck() {
         setTodoStatus((todoStatus) =>
             todoStatus === "complete" ? "incomplete" : "complete"
         );
+    }
+
+    function handleDelete () {
+        const newToDoes:todoType[] = [];
+        let k = 1;
+        for(let i = 0; i < toDoes.length; i++)
+            if(toDoes[i].num !== todo.num) {
+                toDoes[i].num = k++;
+                newToDoes.push(toDoes[i]);
+            }
+
+        setToDoes(newToDoes);
     }
 
     return (
@@ -37,7 +53,7 @@ const ToDo: React.FC<entry> = ({ todo }) => {
                 </div>
             </div>
             <div className="delete">
-                <button>
+                <button onClick={handleDelete}>
                     <RiDeleteBinLine />
                 </button>
             </div>

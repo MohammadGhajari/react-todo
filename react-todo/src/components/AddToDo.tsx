@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactEventHandler, useState } from 'react';
 import { IoIosAddCircleOutline } from "react-icons/io";
 import "../css/app.css";
 
@@ -15,17 +15,26 @@ const AddToDo: React.FC<entry> = ({setToDoes, todos}) => {
     const [value, setValue] = useState("");
 
 
-    function handleAdd () {
+    function handleClick () {
         if(value) {
             setToDoes([...todos, {num: todos.length + 1, text: value, date: '234', status: "incomplete"}]);
             setValue("");
         }
-        
     }
 
+    function handleKeyDown (e: Event) {
+        if(e.key === 'Enter') {
+            if(value) {
+                setToDoes([...todos, {num: todos.length + 1, text: value, date: '234', status: "incomplete"}]);
+                setValue("");
+            }
+        }
+    }
+
+
     return <div className='input-container'>
-        <input  value={value}  onChange={(e) => setValue(e.target.value)}  type="text" placeholder='Add your task...' />
-        <button onClick={handleAdd} className='add-todo-btn'><IoIosAddCircleOutline /></button>
+        <input  onKeyDown={handleKeyDown} value={value}  onChange={(e) => setValue(e.target.value)}  type="text" placeholder='Add your task...' />
+        <button onClick={handleClick} className='add-todo-btn'><IoIosAddCircleOutline /></button>
     </div>
 }
 

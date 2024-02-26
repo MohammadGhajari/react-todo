@@ -95,6 +95,7 @@ body {
   border-bottom: 1px solid #00dfc0;
   background: transparent;
   outline: none;
+  font-family: "handlee", cursive;
 }
 .input-container input:focus {
   border-bottom: 2px solid #00dfc0;
@@ -159,6 +160,10 @@ body {
 }
 .table-data-container .delete button svg {
   font-size: 1.8rem;
+  transition: 0.2s;
+}
+.table-data-container .delete button svg:hover {
+  color: #00dfc0;
 }
 .table-data-container .status {
   align-items: center;
