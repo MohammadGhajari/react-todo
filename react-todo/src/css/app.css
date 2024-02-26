@@ -104,6 +104,13 @@ body {
   font-size: 2rem;
 }
 
+.todos-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .table-header-container {
   margin-top: 3rem;
   margin-bottom: 2rem;
@@ -118,6 +125,8 @@ body {
 }
 .table-header-container .data, .table-header-container .status, .table-header-container .delete {
   width: 15%;
+  display: flex;
+  justify-content: center;
 }
 
 .table-data-container {
@@ -140,13 +149,10 @@ body {
 }
 .table-data-container .data, .table-data-container .status, .table-data-container .delete {
   width: 15%;
-}
-.table-data-container .delete {
-  position: relative;
+  display: flex;
+  justify-content: center;
 }
 .table-data-container .delete button {
-  position: absolute;
-  left: 15%;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -154,14 +160,57 @@ body {
 .table-data-container .delete button svg {
   font-size: 1.8rem;
 }
-.table-data-container .status button {
-  padding: 0;
-  width: 2rem;
-  height: 2rem;
+.table-data-container .status {
+  align-items: center;
 }
-.table-data-container .status button svg {
-  width: 100%;
-  height: 100%;
+.table-data-container .status .check-box-container {
+  cursor: pointer;
+  border: 2px solid grey;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.2s;
+}
+.table-data-container .status .check-box-container .check-status {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 1rem;
+  height: 0.5rem;
+  border: 3px solid grey;
+  border-top: none;
+  border-right: none;
+  transform: rotate(310deg);
+  border-radius: 2px;
+  transition: 0.2s;
+}
+.table-data-container .status .check-box-container:hover {
+  border: 2px solid #00dfc0;
+}
+.table-data-container .status .check-box-container:hover .check-status {
+  border: 3px solid #00dfc0;
+  border-top: none;
+  border-right: none;
+}
+.table-data-container .status .complete-status {
+  background-color: #00dfc0;
+  border-color: #00dfc0;
+}
+.table-data-container .status .complete-status .check-complete-status {
+  border-color: #eee;
+}
+.table-data-container .status .complete-status:hover {
+  background-color: #555;
+  border-color: #555;
+}
+.table-data-container .status .complete-status:hover .check-status {
+  border: 3px solid #eee;
+  border-top: none;
+  border-right: none;
 }
 
 /*# sourceMappingURL=app.css.map */
