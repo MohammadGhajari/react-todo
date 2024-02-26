@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddToDo from "./components/AddToDo";
 import Header from "./components/Header";
 import ToDos from "./components/ToDos";
 import "./css/app.css";
 
 const App: React.FC = () => {
-    const [toDoes, setToDoes] = useState<
-        { num: number; text: string; date: string; status: string }[]
-    >([
-        { num: 1, text: "do homework", date: "25/02", status: "complete" },
-        { num: 2, text: "fucking a monkey", date: "25/02", status: "incomplete" },
-    ]);
+
+    const [toDoes, setToDoes] = useState<{ num: number; text: string; date: string; status: string }[]>([]);
+   
+    useEffect(() => {
+        if(JSON.parse(localStorage.getItem('todoes')!)) 
+            setToDoes(JSON.parse(localStorage.getItem('todoes')!));
+        
+    }, []); 
+    
+
 
     const totalToDo = toDoes.length;
     const completedCount = toDoes.filter(
@@ -20,6 +24,7 @@ const App: React.FC = () => {
 
     return (
         <div className="app">
+
             <div className="page">
                 <Header
                     totalToDo={totalToDo}

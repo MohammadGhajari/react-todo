@@ -15,19 +15,22 @@ const AddToDo: React.FC<entry> = ({setToDoes, todos}) => {
     const [value, setValue] = useState("");
     const date = new Date();
 
-    function handleClick () {
-        if(value) {
+    function handleAdd () {
+         if(value) {
             setToDoes([...todos, {num: todos.length + 1, text: value, date: date.toString().split(' ')[1] + " " + date.toString().split(' ')[2], status: "incomplete"}]);
             setValue("");
+            localStorage.clear();
+            localStorage.setItem('todoes', JSON.stringify([...todos, {num: todos.length + 1, text: value, date: date.toString().split(' ')[1] + " " + date.toString().split(' ')[2], status: "incomplete"}]));
         }
+    }
+
+    function handleClick () {
+       handleAdd();
     }
 
     function handleKeyDown (e: Event) {
         if(e.key === 'Enter') {
-            if(value) {
-                setToDoes([...todos, {num: todos.length + 1, text: value, date: date.toString().split(' ')[1] + " " + date.toString().split(' ')[2], status: "incomplete"}]);
-                setValue("");
-            }
+            handleAdd();
         }
     }
 
