@@ -1,39 +1,55 @@
-import React, { useEffect, useState } from "react";
-import AddToDo from "./components/AddToDo";
-import Header from "./components/Header";
-import ToDos from "./components/ToDos";
+import React from "react";
+import Page from "./components/Page";
 import "./css/app.css";
 
 const App: React.FC = () => {
-
-    const [toDoes, setToDoes] = useState<{ num: number; text: string; date: string; status: string }[]>([]);
-   
-    useEffect(() => {
-        if(JSON.parse(localStorage.getItem('todoes')!)) 
-            setToDoes(JSON.parse(localStorage.getItem('todoes')!));
-        
-    }, []); 
     
-
-
-    const totalToDo = toDoes.length;
-    const completedCount = toDoes.filter(
-        (elem) => elem.status === "complete"
-    ).length;
-    const pendingCount = totalToDo - completedCount;
 
     return (
         <div className="app">
+            {/* add some style to background */}
 
-            <div className="page">
-                <Header
-                    totalToDo={totalToDo}
-                    completedCount={completedCount}
-                    pendingCount={pendingCount}
-                />
-                <AddToDo setToDoes={setToDoes} todos={toDoes} />
-                <ToDos setToDoes={setToDoes} toDoes={toDoes} />
-            </div>
+            {Array.from({ length: 20 }, (_, i) => (
+                <>
+                {/* random lines */}
+                    <div
+                        style={{
+                            position: 'absolute',
+                            left: `${Math.floor(Math.random() * 100)}%`,
+                            top: `${Math.floor(Math.random() * 100)}%`,
+                            width: `${Math.floor(Math.random() * 8) + 2}rem`,
+                            transform: `rotate(${Math.floor(Math.random() * 180)}deg)`,
+                            height: `2px`,
+                            background: `rgb(${Math.floor(
+                                Math.random() * 255
+                            )}, ${Math.floor(
+                                Math.random() * 255
+                            )}, ${Math.floor(Math.random() * 255)})`
+                        }}
+                        key={i}
+                    ></div>
+                    {/* random circles */}
+                    <div
+                        style={{
+                            borderRadius: `100%`,
+                            position: 'absolute',
+                            left: `${Math.floor(Math.random() * 100)}%`,
+                            top: `${Math.floor(Math.random() * 100)}%`,
+                            width: `${Math.floor(Math.random() * 2) + 2}rem`,
+                            aspectRatio: 1,
+                            border: `solid 2px rgb(${Math.floor(
+                                Math.random() * 255
+                            )}, ${Math.floor(
+                                Math.random() * 255
+                            )}, ${Math.floor(Math.random() * 255)})`,
+                        }}
+                        className="bubble"
+                        key={i + 21}
+                    ></div>
+                </>
+            ))}
+            
+            <Page/>
         </div>
     );
 };
