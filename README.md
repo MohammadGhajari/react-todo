@@ -9,13 +9,13 @@ This is a simple Todo List application built using React and TypeScript.
 
 ## How to Run
 1. Clone the repository
-2. Run npm install to install dependencies
-3. Run npm run dev to start the development server
+2. Run ```npm install``` to install dependencies
+3. Run ```npm run dev``` to start the development server
 
 ## Technologies Used
 - React
 - TypeScript
+- Sass
 
-Feel free to contribute or report any issues!
-
-Happy todo-ing! 📝🚀
+#### Enjoy it
+[Taskify](https://taskify-zen.netlify.app/)
