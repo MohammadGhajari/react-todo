@@ -64,9 +64,9 @@ body {
 .page header span {
   background-color: #00dfc0;
   height: 0.6rem;
-  width: 15rem;
+  width: 10rem;
   position: absolute;
-  bottom: 45%;
+  bottom: 40%;
 }
 
 .input-container {

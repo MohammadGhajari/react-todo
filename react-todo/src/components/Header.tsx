@@ -10,7 +10,7 @@ interface entry {
 const Header: React.FC<entry> = ({totalToDo, completedCount, pendingCount}) => {
     return (
         <header>
-            <h1>To-Do list</h1>
+            <h1>Taskify</h1>
             <span></span>
             <h3>{`Total:${totalToDo}, Complete:${completedCount}, Pending${pendingCount}`}</h3>
         </header>
