@@ -195,7 +195,8 @@ body {
     & .date, & .status, & .delete {
         width: 15%;
         display: flex;
-        justify-content: center
+        justify-content: center;
+        align-items: center;
     } 
 
     & .delete {
@@ -230,7 +231,7 @@ body {
             & .check-status {
                 position: absolute;
                 top: 4px;
-                left: 4px;
+                left: 3px;
                 width: 1rem;
                 height: 0.5rem;
                 border: 3px solid grey;
@@ -270,6 +271,73 @@ body {
         }
     }
 
+}
+
+@media (max-width: 1100px) {
+    .page {
+        width: 90%;
+    }
+}
+@media (max-width: 780px) {
+    .page {
+        width: 100%;
+    }
+}
+@media (max-width: 700px) {
+    .page {
+        height: 100%;
+        & header {
+            margin-top: 2rem;
+        }
+    }
+    .table-data-container {
+        & .num, & .date {
+            display: none;
+        }
+        & .task {
+            width: 70%;
+        }
+        
+    }
+    .table-header-container {
+        & .num, & .data{
+            display: none;
+        }
+        & .task {
+            width: 70%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+@media (max-width: 450px) {
+    
+    .todos-container {
+        width: 100%;
+    }
+
+    .input-container {
+        & input {
+            width: 70%;
+        }
+    }
+    
+    .table-header-container {
+        & .delete, & .status {
+            width: 20%;
+        }
+        & .task {
+            width: 60%;
+        }
+    }
+    .table-data-container {
+        & .delete, & .status {
+            width: 20%;
+        }
+        & .task {
+            width: 60%;
+        }
+    }
 }
 
 @keyframes wiggle {

@@ -1,7 +1,4 @@
-import React, { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { IoCheckboxOutline } from "react-icons/io5";
-import ToDos from "./ToDos";
 
 type todoType = { num: number; text: string; date: string; status: string };
 

@@ -1,4 +1,4 @@
-import React, { ReactEventHandler, useState } from 'react';
+import React, { useState } from 'react';
 import { IoIosAddCircleOutline } from "react-icons/io";
 import "../css/app.css";
 
@@ -28,7 +28,7 @@ const AddToDo: React.FC<entry> = ({setToDoes, todos}) => {
        handleAdd();
     }
 
-    function handleKeyDown (e: Event) {
+    function handleKeyDown (e: React.KeyboardEvent<HTMLElement>) {
         if(e.key === 'Enter') {
             handleAdd();
         }
